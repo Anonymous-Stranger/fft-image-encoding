@@ -2,14 +2,6 @@ import numpy as np
 from dft import dft
 from cooley_tukey import cooley_tukey
 
-def ifft(data, fftAlgo):
-	return fftAlgo(np.concatenate(([data[0]],np.flip(data[1:],0))))/data.size
-
-def fft2d(data, fftAlgo):
-	return np.transpose(np.array([fftAlgo(x) for x in np.transpose(np.array([fftAlgo(x) for x in data]))]))
-
-def ifft2d(data, fftAlgo):
-	return np.transpose(np.array([ifft(x,fftAlgo) for x in np.transpose(np.array([ifft(x,fftAlgo) for x in data]))]))
 
 if __name__== "__main__":
 	data = np.array([1,2-1j,-1j,-1+2j])

@@ -3,7 +3,7 @@ import numpy as np
 
 def dft(pts, k_max=None):
     k_max = k_max or len(pts)
-    return [dftk(pts, k) for k in range(k_max)]
+    return np.array([dftk(pts, k) for k in range(k_max)])
 
 
 def dftk(pts, k):

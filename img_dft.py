@@ -29,21 +29,3 @@ def img_encode(img, algorithm):
 
 def img_decode(img, algorithm):
     return np.asarray(img_fft(img, partial(ifft2d, algorithm)), dtype=np.uint8)
-
-
-def _test():
-    import sys
-    from cooley_tukey import cooley_tukey
-    from dft import dft
-
-    algorithm = cooley_tukey
-    if len(sys.argv) > 1:
-        img = Image.open(sys.argv[1])
-        encoded = img_encode(img, algorithm)
-        # print(encoded)
-        decoded = img_decode(encoded, algorithm)
-        print(np.array(img)[:, :, 1] - decoded[:, :, 1])
-
-
-if __name__ == "__main__":
-    _test()

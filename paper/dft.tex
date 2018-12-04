@@ -1,4 +1,58 @@
-\subsection{Discrete Time Fourier Transform}
-\subsection{Modifications for the FFT}
+\subsection{Discrete \& Discrete Time Fourier Transforms}
+The discrete time fourier transform (DTFT) takes an infinite number of complex values, $x_n$, and returns a continuous function of frequency in the form of a fourier series. When the frequency is normalized, then the formula for the function is:
+\[X(\omega)=\sum_{n=-\infty}^\infty x_n e^{-i\omega n}\]
+It can be inverted by:
+\[x_n=\frac{1}{2\pi}\int_0^{2\pi}X(\omega)e^{i\omega n}d\omega\]
+When the data, $x_n$, are evenly spaced samples of a continuous function, $s(t)$, then the DTFT results in a periodic summation of its fourier transform, $\mathcal{F}\{s(t)\}$, with period $1/{2\pi}$. Because the DTFT is continuous and requires an infinite number of points, it isn't very computationally useful. The discrete fourier transform (DFT) takes a finite number of complex values, $x_n, n=0..N-1$, and returns a different set of complex values $X_n, n=0..N-1$. If the $x_n$'s are evenly spaced samples of some function, then the $X_n$'s are evenly spaced samples of the DTFT of that function. The DFT can be calculated as follows:
+\[X_k=\sum_{n=0}^{N-1}x_n e^{-\frac{2\pi i}{N}kn}\]
+Its inverse can be expressed similarly or in terms of the DFT:
+\begin{align*}
+	x_k&=\frac{1}{N}\sum_{n=0}^{N-1}X_n e^{\frac{2\pi i}{N}kn} \\
+	\mathcal{F}^{-1}\{x_n\}&=\frac{1}{N}\mathcal{F}\{x_{N-n}\}
+\end{align*}
+where $x_N=x_0$. There are a few other ways of expressing the inverse transform in terms of the forward transform, but the one written above is the most computationally efficient. The DFT can also be expressed as a matrix vector multiplication. Given $\omega=2\pi i /N$ and $\vec{x}$, the $x_n$'s expressed as a column vector, the DFT would be $A\vec{x}$, where:
+\[A=
+\begin{bmatrix}
+1      & 1            & 1             & \dots  & 1                \\
+1      & \omega       & \omega^2      & \dots  & \omega^{N-1}     \\
+1      & \omega^2     & \omega^4      & \dots  & \omega^{2N-2}    \\
+\vdots & \vdots       & \vdots        & \ddots & \vdots           \\
+1      & \omega^{N-1} & \omega^{2N-2} & \dots  & \omega^{(N-1)^2}
+\end{bmatrix}\]
+\subsection{2-D DFT}
+Given a set of complex values, $x_{n,m}, n=0..N-1, m=0..M-1$, the 2D discrete fourier transform returns a set of complex values $X_{n,m}, n=0..N-1, m=0..M-1$ according to the following equation:
+\begin{align*}
+	X_{j,k}&=\sum_{n=0}^{N-1}\sum_{m=0}^{M-1}x_{n,m} e^{-\frac{2\pi i}{N}jn}e^{-\frac{2\pi i}{M}km} \\
+	&= \sum_{n=0}^{N-1} \left(e^{-\frac{2\pi i}{N}jn}\sum_{m=0}^{M-1}x_{n,m}e^{-\frac{2\pi i}{M}km}\right)
+\end{align*}
+The inner summation in the second of the equation is a DFT over each row, and the outer summation is a DFT over each column of the result. This means that it is possible to express the 2D DFT as 2 1D DFTs. This result holds true for any number of dimensions. Because of this, we only implemented a 1D DFT and used it twice to implement our 2D DFT.
 \subsection{Different FFT Algorithms}
+\subsubsection{Cooley-Tukey Algorithm}
+The Cooley-Tukey algorithm is by far the most common fast fourier transform algorithm. It works on any input of composite size $N=N_1N_2$. It does so by doing $N_1$ fourier transforms of size $N_2$ followed by multiplications by twiddle factors and then $N_2$ fourier transforms of size $N_1$. The implementation and derivation are easiest when $N_1=2$, so the following assumes that (as did our implementation). Note that forcing $N_1=2$ means that the algorithm will only work when given $2^k|k\in\mathbb{N}$ values. Let $E_k$ be the DFT of the even indexed values, and $O_k$ be the DFT of the odd indexed values:
+\begin{align*}
+	E_k &= \sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N/2}kn} \\
+	O_k &= \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N/2}kn}\\
+\end{align*}
+The DFT of the first half is:\\
+\begin{align*}
+	X_k &= \sum_{n=0}^{N-1}x_ne^{-\frac{2\pi i}{N}kn} \\
+	&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N}k*2n} + \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N}k(2n+1)} \\
+	&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N/2}kn} + e^{-\frac{2\pi i}{N}k}\sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N/2}kn} \\
+	&=E_k+e^{-\frac{2\pi i}{N}k}O_k
+\end{align*}
+This is only the first half because $k$ can only go up to $N/2-1$ because of the $E_k$ and $O_k$. The second half is:\\
+\begin{align*}
+	X_{k+N/2} &= \sum_{n=0}^{N-1}x_ne^{-\frac{2\pi i}{N}(k+N/2)*n} \\
+	&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N}(k+N/2)*2n} + \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N}(k+N/2)(2n+1)} \\
+	&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N/2}kn}e^{-2\pi in} + e^{-\frac{2\pi i}{N}k}e^{-\pi i} \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N/2}kn}e^{-2\pi in} \\
+	&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N/2}kn} - e^{-\frac{2\pi i}{N}k}\sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N/2}kn} \\
+	&=E_k-e^{-\frac{2\pi i}{N}k}O_k
+\end{align*}
+This is how the simplest version of Cooley-Tukey works. It takes the DFT of the even and the odd elements, multiplies the odd elements by a certain term (called the twiddle factor) and then combines the two DFTs together. The fact that it has an addition in the first half and a subtraction in the second is because that is how a DFT of two elements looks. Because the even and odd DFTs are half the size, can also be computed recursively with Cooley-Tukey, and because they can be reused, the complexity of the algorithm is $O(Nlog(N))$ when $N$ is significantly composite. In the event that $N$ is prime or it reaches a prime sized base case quickly, then it must rely on a different algorithm. If it uses naive DFT in these cases, then the complexity is still $O(N^2)$, despite being several times faster. If it uses Rader's or Bluestein's algorithm, then it remains $O(Nlog(N))$.
+\subsubsection{Rader's Algorithm}
+Rader's algorithm is significantly more complex than Cooley-Tukey, and is thus used less often. Rader's algorithm only works on prime sized inputs. It does so by calculating the first element of the DFT in $O(N)$ time naively (summing all the elements), and then calculating the rest as a convolution of two different sets of size $N-1$ (gauranteed to be a composite). The convolution theorem states that the fourier transform of the convolution of two sets is the pointwise product of the transform of each set ($\mathcal{F}\{f*g\}=\mathcal{F}\{f\}\cdot\mathcal{F}\{g\}$). Thanks to this, Cooley-Tukey or another FFT algorithm can be applied to each of the sets, they can be multiplied pointwise, the DFT can be inverted (also using Cooley-Tukey), and then the result can be combined with the first term calculated earlier to get the DFT.
+\subsubsection{Bluestein's Algorithm}
+Bluestein's algorithm is even more complicated than Rader's algorithm. It calculates a generalization of the DFT called the Chirp Z-Transform (CZT), using FFT algorithms. It works on any size input (prime and composite), and it also relies on the convolution theorem. Even though it works on any size input, it is slower than Cooley-Tukey by a large constant. In practice, Cooley-Tukey is used, and either Bluestein's or Rader's algorithm is used for prime size base cases.
+\subsubsection{Other Algorithms}
+Other less common algorithms that compute the DFT quickly are Winograd's algorithm (any power of a prime), the prime-factor algorithm (works on sizes $N=N_1N_2$ where $N_1$ and $N_2$ are relatively prime), and Bruun's Algorithm (even composite sizes).
 \subsection{Modern Applications of DFT}

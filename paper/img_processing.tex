@@ -1,5 +1,8 @@
 \subsection{Python Implementation}
-\subsubsection{DFT}
-\subsubsection{FFT}
+	All code can be found at: \\ \href{https://github.com/Anonymous-Stranger/fft-image-encoding}{https://github.com/Anonymous-Stranger/fft-image-encoding}
+	\subsubsection{DFT}
+		Our implementation of DFT doesn't use the matrix form of the equation. It uses two nested for loops, one to iterate over all $X_k$, and another to implement the summation over all $x_n$, using the standard formula. The inverse DFT is implemented in terms of the DFT, by reversing all but the first element of the input, computing the DFT and dividing all elements by the size of the input. The 2D DFT is implemented as two separate DFTs, one over the rows, and the other over the columns. It does this by taking the DFT over the rows, transposing the matrix, doing the DFT over the rows of the result (stored in a temporary), and then returning the transpose of the result. Both the inverse and 2D discrete fourier transform implementations take a function as input. This allowed us to use one function to implement it for both the naive DFT and Cooley-Tukey.
+	\subsubsection{FFT}
+		Our implementation of Cooley-Tukey uses the simplest version, which only works on sets of data with a power of 2 size. It takes the input as a numpy array of complex values, uses python slicing to split into even and odd parts, recursively calling itself on each half (returning immediately when the size was 1), multiplying the odd values by the twiddle factors, and then concatenating the sum and difference of the even and odd values. The inverse and 2D discrete fourier transforms are implemented as described above. See appendix A for all of the actual code.
 \subsection{Results}
 \subsection{Discussion}

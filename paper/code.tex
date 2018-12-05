@@ -1,0 +1,27 @@
+\lstset{language=Python,basicstyle=\ttfamily}
+\subsection{Naive DFT}
+	\label{naive_dft_python}
+	\begin{lstlisting}
+import numpy as np
+def dft(pts, k_max=None):
+    k_max = k_max or len(pts)
+    return np.array([dftk(pts, k) for k in range(k_max)])
+def dftk(pts, k):
+    coeff = -2*np.pi*k/len(pts)
+    return sum((x * np.exp(complex(0, coeff*n)) for n, x in enumerate(pts)))
+	\end{lstlisting}
+\subsection{Cooley-Tukey}
+	\label{cooley_tukey_python}
+	\begin{lstlisting}
+import numpy as np
+def cooley_tukey(data):
+    if(data.size==1): return data
+    even = cooley_tukey(data[::2])
+    odd = cooley_tukey(data[1::2])
+    multiplier = np.exp(np.pi*-2j/data.size)
+    k = 1
+    for i in range(0,odd.size):
+        odd[i] *= k
+        k *= multiplier
+    return np.concatenate((even+odd,even-odd))
+	\end{lstlisting}

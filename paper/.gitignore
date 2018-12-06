@@ -1,5 +1,7 @@
-*
-!.gitignore
-!*.tex
-!*.cls
-!images/*
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.pdf

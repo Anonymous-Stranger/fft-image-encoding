@@ -101,10 +101,10 @@ if __name__ == "__main__":
     img = Image.open(sys.argv[1])
     img = img.resize((400, 400 * img.height // img.width))
 
-    ic = ImageCompressor(partial(fft2d, cooley_tukey),
-                         partial(ifft2d, cooley_tukey))
+    ic = ImageCompressor(partial(fft2d, dft),
+                         partial(ifft2d, dft))
 
-    # ic = ImageCompressor(np.fft.fft2, np.fft.fft2)
+    # ic = ImageCompressor(np.fft.fft2, np.fft.ifft2)
 
     pixels = np.array(img)
     print(pixels.shape)
@@ -114,3 +114,5 @@ if __name__ == "__main__":
 
     dec = ic.to_array(enc)
     print(dec.shape)
+
+    print(np.mean(np.square(pixels - dec)))

@@ -1,6 +1,7 @@
 import numpy as np
 
 def cooley_tukey(data):
+	data = data.astype(np.complex64)
 	if(data.size==1): return data
 	even = cooley_tukey(data[::2])
 	odd = cooley_tukey(data[1::2])

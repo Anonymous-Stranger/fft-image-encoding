@@ -1,0 +1,152 @@
+2-colors-denise-bossarte-263147-unsplash.jpg (5145 KB)
+[ 3.9 s] numpy fft (comp. rate: 0.5): 5145 KB, rms error: 2.1549673634713935
+[   4 s] numpy fft (comp. rate: 0.75): 7718 KB, rms error: 1.403778464301658
+[ 4.1 s] numpy fft (comp. rate: 0.8): 8200 KB, rms error: 1.2093184793735723
+[ 4.1 s] numpy fft (comp. rate: 0.9): 9165 KB, rms error: 1.0633958534487562
+[ 4.1 s] numpy fft (comp. rate: 0.95): 9648 KB, rms error: 0.7807633305801874
+[ 4.2 s] numpy fft (comp. rate: 1): 10291 KB, rms error: 3.387590856562679e-07
+[  56 s] dft (comp. rate: 0.5): 5145 KB, rms error: 2.1549673634713935
+[  56 s] dft (comp. rate: 0.75): 7718 KB, rms error: 1.4037784643016584
+[  56 s] dft (comp. rate: 0.8): 8200 KB, rms error: 1.2093184793735723
+[  56 s] dft (comp. rate: 0.9): 9165 KB, rms error: 1.0633958534487562
+[  56 s] dft (comp. rate: 0.95): 9648 KB, rms error: 0.7807633305801875
+[  56 s] dft (comp. rate: 1): 10291 KB, rms error: 3.38759085573397e-07
+[  24 s] cooley_tukey (comp. rate: 0.5): 2572 KB, rms error: 2.1549673661060327
+[  24 s] cooley_tukey (comp. rate: 0.75): 3859 KB, rms error: 1.4037784420004298
+[  24 s] cooley_tukey (comp. rate: 0.8): 4100 KB, rms error: 1.2093184633879452
+[  24 s] cooley_tukey (comp. rate: 0.9): 4582 KB, rms error: 1.0633958233286736
+[  24 s] cooley_tukey (comp. rate: 0.95): 4824 KB, rms error: 0.7807633040321887
+[  24 s] cooley_tukey (comp. rate: 1): 5145 KB, rms error: 6.36838874109132e-07
+fluid-rawpixel-652643-unsplash.jpg (3302 KB)
+[ 2.5 s] numpy fft (comp. rate: 0.5): 3302 KB, rms error: 9.333238630273897
+[ 2.6 s] numpy fft (comp. rate: 0.75): 4953 KB, rms error: 6.407748712985651
+[ 2.6 s] numpy fft (comp. rate: 0.8): 5263 KB, rms error: 5.349960062550464
+[ 2.6 s] numpy fft (comp. rate: 0.9): 5882 KB, rms error: 4.8891941787637085
+[ 2.6 s] numpy fft (comp. rate: 0.95): 6192 KB, rms error: 3.3756912123174057
+[ 2.7 s] numpy fft (comp. rate: 1): 6604 KB, rms error: 8.758221635683169e-07
+[  36 s] dft (comp. rate: 0.5): 3302 KB, rms error: 9.333238630273899
+[  36 s] dft (comp. rate: 0.75): 4953 KB, rms error: 6.407748712985652
+[  36 s] dft (comp. rate: 0.8): 5263 KB, rms error: 5.349960062550464
+[  36 s] dft (comp. rate: 0.9): 5882 KB, rms error: 4.889194178763708
+[  36 s] dft (comp. rate: 0.95): 6192 KB, rms error: 3.375691212317406
+[  36 s] dft (comp. rate: 1): 6604 KB, rms error: 8.758221634263513e-07
+[  15 s] cooley_tukey (comp. rate: 0.5): 1651 KB, rms error: 9.333238640314237
+[  15 s] cooley_tukey (comp. rate: 0.75): 2476 KB, rms error: 6.407748714839538
+[  15 s] cooley_tukey (comp. rate: 0.8): 2631 KB, rms error: 5.3499600645817305
+[  15 s] cooley_tukey (comp. rate: 0.9): 2941 KB, rms error: 4.889194174785024
+[  16 s] cooley_tukey (comp. rate: 0.95): 3096 KB, rms error: 3.3756912205242173
+[  16 s] cooley_tukey (comp. rate: 1): 3302 KB, rms error: 1.8347653809131021e-06
+lines-bernard-hermant-603661-unsplash.jpg (5760 KB)
+[ 4.4 s] numpy fft (comp. rate: 0.5): 5760 KB, rms error: 50.129366356630804
+[ 4.5 s] numpy fft (comp. rate: 0.75): 8640 KB, rms error: 31.835171861890437
+[ 4.5 s] numpy fft (comp. rate: 0.8): 9180 KB, rms error: 30.45425533269713
+[ 4.6 s] numpy fft (comp. rate: 0.9): 10260 KB, rms error: 27.441206910351948
+[ 4.6 s] numpy fft (comp. rate: 0.95): 10800 KB, rms error: 22.56937271513145
+[ 4.7 s] numpy fft (comp. rate: 1): 11520 KB, rms error: 2.074492987573328e-06
+[  63 s] dft (comp. rate: 0.5): 5760 KB, rms error: 50.1293663566308
+[  63 s] dft (comp. rate: 0.75): 8640 KB, rms error: 31.83517186189044
+[  63 s] dft (comp. rate: 0.8): 9180 KB, rms error: 30.45425533269713
+[  63 s] dft (comp. rate: 0.9): 10260 KB, rms error: 27.441206910351955
+[  63 s] dft (comp. rate: 0.95): 10800 KB, rms error: 22.569372715131454
+[  63 s] dft (comp. rate: 1): 11520 KB, rms error: 2.0744929879567083e-06
+[  27 s] cooley_tukey (comp. rate: 0.5): 2880 KB, rms error: 50.129366342219186
+[  27 s] cooley_tukey (comp. rate: 0.75): 4320 KB, rms error: 31.835171849601238
+[  27 s] cooley_tukey (comp. rate: 0.8): 4590 KB, rms error: 30.454255319093626
+[  27 s] cooley_tukey (comp. rate: 0.9): 5130 KB, rms error: 27.44120690698387
+[  27 s] cooley_tukey (comp. rate: 0.95): 5400 KB, rms error: 22.569372715519723
+[  27 s] cooley_tukey (comp. rate: 1): 5760 KB, rms error: 4.6364311054097385e-06
+paint-briana-wallace-783301-unsplash.jpg (5760 KB)
+[ 4.4 s] numpy fft (comp. rate: 0.5): 5760 KB, rms error: 7.6082239954116915
+[ 4.5 s] numpy fft (comp. rate: 0.75): 8640 KB, rms error: 5.250593595675016
+[ 4.5 s] numpy fft (comp. rate: 0.8): 9180 KB, rms error: 4.301387503023972
+[ 4.6 s] numpy fft (comp. rate: 0.9): 10260 KB, rms error: 3.9347538269503994
+[ 4.6 s] numpy fft (comp. rate: 0.95): 10800 KB, rms error: 2.6244078470855716
+[ 4.7 s] numpy fft (comp. rate: 1): 11520 KB, rms error: 5.660257514985366e-07
+[  63 s] dft (comp. rate: 0.5): 5760 KB, rms error: 7.608223995411693
+[  63 s] dft (comp. rate: 0.75): 8640 KB, rms error: 5.250593595675016
+[  63 s] dft (comp. rate: 0.8): 9180 KB, rms error: 4.301387503023973
+[  63 s] dft (comp. rate: 0.9): 10260 KB, rms error: 3.9347538269503985
+[  63 s] dft (comp. rate: 0.95): 10800 KB, rms error: 2.6244078470855707
+[  63 s] dft (comp. rate: 1): 11520 KB, rms error: 5.660257515447424e-07
+[  27 s] cooley_tukey (comp. rate: 0.5): 2880 KB, rms error: 7.6082239946661225
+[  27 s] cooley_tukey (comp. rate: 0.75): 4320 KB, rms error: 5.250593586900839
+[  27 s] cooley_tukey (comp. rate: 0.8): 4590 KB, rms error: 4.3013874983754325
+[  27 s] cooley_tukey (comp. rate: 0.9): 5130 KB, rms error: 3.934753814973865
+[  27 s] cooley_tukey (comp. rate: 0.95): 5400 KB, rms error: 2.6244078496902956
+[  27 s] cooley_tukey (comp. rate: 1): 5760 KB, rms error: 7.499023774895964e-07
+photographs-jon-tyson-762647-unsplash.jpg (5145 KB)
+[ 3.9 s] numpy fft (comp. rate: 0.5): 5145 KB, rms error: 21.867698550104844
+[   4 s] numpy fft (comp. rate: 0.75): 7718 KB, rms error: 14.56557905506415
+[ 4.1 s] numpy fft (comp. rate: 0.8): 8200 KB, rms error: 12.235754470241943
+[ 4.1 s] numpy fft (comp. rate: 0.9): 9165 KB, rms error: 10.779969361894473
+[ 4.1 s] numpy fft (comp. rate: 0.95): 9648 KB, rms error: 7.419049305600697
+[ 4.2 s] numpy fft (comp. rate: 1): 10291 KB, rms error: 1.4296973704370434e-06
+[  56 s] dft (comp. rate: 0.5): 5145 KB, rms error: 21.867698550104848
+[  56 s] dft (comp. rate: 0.75): 7718 KB, rms error: 14.56557905506415
+[  56 s] dft (comp. rate: 0.8): 8200 KB, rms error: 12.235754470241943
+[  56 s] dft (comp. rate: 0.9): 9165 KB, rms error: 10.779969361894473
+[  56 s] dft (comp. rate: 0.95): 9648 KB, rms error: 7.419049305600695
+[  62 s] dft (comp. rate: 1): 10291 KB, rms error: 1.4296973701783447e-06
+[  24 s] cooley_tukey (comp. rate: 0.5): 2572 KB, rms error: 21.867698538362404
+[  24 s] cooley_tukey (comp. rate: 0.75): 3859 KB, rms error: 14.565579052507402
+[  24 s] cooley_tukey (comp. rate: 0.8): 4100 KB, rms error: 12.235754456927634
+[  24 s] cooley_tukey (comp. rate: 0.9): 4582 KB, rms error: 10.779969359021383
+[  24 s] cooley_tukey (comp. rate: 0.95): 4824 KB, rms error: 7.419049298460365
+[  24 s] cooley_tukey (comp. rate: 1): 5145 KB, rms error: 2.9316250604557536e-06
+portrait-michael-dam-258165-unsplash.jpg (2611 KB)
+[   2 s] numpy fft (comp. rate: 0.5): 2611 KB, rms error: 7.248225042145457
+[ 2.1 s] numpy fft (comp. rate: 0.75): 3916 KB, rms error: 4.6251303977019065
+[ 2.1 s] numpy fft (comp. rate: 0.8): 4161 KB, rms error: 3.929351778862533
+[ 2.1 s] numpy fft (comp. rate: 0.9): 4651 KB, rms error: 3.56219426398338
+[ 2.1 s] numpy fft (comp. rate: 0.95): 4896 KB, rms error: 2.808840645333235
+[ 2.1 s] numpy fft (comp. rate: 1): 5222 KB, rms error: 8.893466269661787e-07
+[  28 s] dft (comp. rate: 0.5): 2611 KB, rms error: 7.248225042145458
+[  29 s] dft (comp. rate: 0.75): 3916 KB, rms error: 4.625130397701907
+[  29 s] dft (comp. rate: 0.8): 4161 KB, rms error: 3.9293517788625345
+[  28 s] dft (comp. rate: 0.9): 4651 KB, rms error: 3.5621942639833803
+[  29 s] dft (comp. rate: 0.95): 4896 KB, rms error: 2.808840645333235
+[  29 s] dft (comp. rate: 1): 5222 KB, rms error: 8.893466270038301e-07
+[  12 s] cooley_tukey (comp. rate: 0.5): 1305 KB, rms error: 7.248225043303052
+[  12 s] cooley_tukey (comp. rate: 0.75): 1958 KB, rms error: 4.625130377312554
+[  12 s] cooley_tukey (comp. rate: 0.8): 2080 KB, rms error: 3.9293517595714627
+[  12 s] cooley_tukey (comp. rate: 0.9): 2325 KB, rms error: 3.5621942517717424
+[  12 s] cooley_tukey (comp. rate: 0.95): 2448 KB, rms error: 2.8088406360400002
+[  12 s] cooley_tukey (comp. rate: 1): 2611 KB, rms error: 1.6808034794480015e-06
+scenichouse-luca-bravo-177552-unsplash.jpg (6144 KB)
+[ 4.7 s] numpy fft (comp. rate: 0.5): 6144 KB, rms error: 12.064165339225084
+[ 4.8 s] numpy fft (comp. rate: 0.75): 9216 KB, rms error: 7.629764402083687
+[ 4.8 s] numpy fft (comp. rate: 0.8): 9792 KB, rms error: 6.5593087738415266
+[ 4.9 s] numpy fft (comp. rate: 0.9): 10944 KB, rms error: 5.442494749597561
+[ 4.9 s] numpy fft (comp. rate: 0.95): 11520 KB, rms error: 3.967332310891992
+[   5 s] numpy fft (comp. rate: 1): 12288 KB, rms error: 8.68665071843051e-07
+[  67 s] dft (comp. rate: 0.5): 6144 KB, rms error: 12.064165339225086
+[  67 s] dft (comp. rate: 0.75): 9216 KB, rms error: 7.629764402083688
+[  67 s] dft (comp. rate: 0.8): 9792 KB, rms error: 6.559308773841528
+[  67 s] dft (comp. rate: 0.9): 10944 KB, rms error: 5.44249474959756
+[  67 s] dft (comp. rate: 0.95): 11520 KB, rms error: 3.9673323108919925
+[  67 s] dft (comp. rate: 1): 12288 KB, rms error: 8.686650720365906e-07
+[  29 s] cooley_tukey (comp. rate: 0.5): 3072 KB, rms error: 12.064165345068634
+[  29 s] cooley_tukey (comp. rate: 0.75): 4608 KB, rms error: 7.629764402899157
+[  29 s] cooley_tukey (comp. rate: 0.8): 4896 KB, rms error: 6.559308785985998
+[  29 s] cooley_tukey (comp. rate: 0.9): 5472 KB, rms error: 5.442494751842108
+[  29 s] cooley_tukey (comp. rate: 0.95): 5760 KB, rms error: 3.967332308352923
+[  29 s] cooley_tukey (comp. rate: 1): 6144 KB, rms error: 1.533742869560727e-06
+text-annie-spratt-695488-unsplash.jpg (2918 KB)
+[ 2.2 s] numpy fft (comp. rate: 0.5): 2918 KB, rms error: 28.354999944434848
+[ 2.3 s] numpy fft (comp. rate: 0.75): 4377 KB, rms error: 18.483594258493813
+[ 2.3 s] numpy fft (comp. rate: 0.8): 4651 KB, rms error: 14.233352375486916
+[ 2.3 s] numpy fft (comp. rate: 0.9): 5198 KB, rms error: 11.706471898812293
+[ 2.3 s] numpy fft (comp. rate: 0.95): 5472 KB, rms error: 7.881132646692449
+[ 2.4 s] numpy fft (comp. rate: 1): 5836 KB, rms error: 1.2099361275205152e-06
+[  32 s] dft (comp. rate: 0.5): 2918 KB, rms error: 28.354999944434855
+[  32 s] dft (comp. rate: 0.75): 4377 KB, rms error: 18.483594258493813
+[  32 s] dft (comp. rate: 0.8): 4651 KB, rms error: 14.233352375486922
+[  32 s] dft (comp. rate: 0.9): 5198 KB, rms error: 11.706471898812291
+[  32 s] dft (comp. rate: 0.95): 5472 KB, rms error: 7.881132646692449
+[  32 s] dft (comp. rate: 1): 5836 KB, rms error: 1.2099361274598797e-06
+[  14 s] cooley_tukey (comp. rate: 0.5): 1459 KB, rms error: 28.354999945268183
+[  14 s] cooley_tukey (comp. rate: 0.75): 2188 KB, rms error: 18.483594246092657
+[  14 s] cooley_tukey (comp. rate: 0.8): 2325 KB, rms error: 14.2333523757381
+[  14 s] cooley_tukey (comp. rate: 0.9): 2599 KB, rms error: 11.706471884740942
+[  14 s] cooley_tukey (comp. rate: 0.95): 2736 KB, rms error: 7.881132637790436
+[  14 s] cooley_tukey (comp. rate: 1): 2918 KB, rms error: 1.9538211345364764e-06

@@ -46,7 +46,7 @@ class ImageEncoder:
         for (ci, ri, bi), block in block_gen:
             data[ci, ri, bi] = self.encode(block)
 
-        return EncodedImage(data, bsz, (pr0, pc0, nr + pr1, nc + pc1), self)
+        return EncodedImage(data, bsz, (pr0, pc0, nr + pr0, nc + pc0), self)
 
     def to_array(self, encimg):
         bks, shape = encimg.block_size, encimg.data.shape

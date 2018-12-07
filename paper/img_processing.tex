@@ -12,8 +12,7 @@
 \subsection{Results}
 		\subsubsection{Correctness}
 		\begin{figure}[h]
-			\vspace{-5mm}
-			\includegraphics[width=\linewidth]{images/accuracy.png}
+			\includegraphics[width=\linewidth]{images/algorithm-accuracy.png}
 			\caption{Root-mean-squared error on various images at compression rates of 0.5, 0.75, 0.8, 0.9, 0.95, and 1, where 0.5 is the most compressed (least size), and 1 is the least compressed (most size). The error at a comp. rate of 1 was effectively 0 for all images. See Appendix~\ref{sec:image-credit} for each picture.}
 			\label{fig:accuracy}
 		\end{figure}
@@ -29,7 +28,7 @@
 		Figure~\ref{fig:performance} shows the performance of 3 different implementations of the discrete fourier transform on several different size inputs. The red line shows the time taken by the dft algorithm, the green line shows the time taken by our implementation of Cooley-Tukey, and the blue line shows the time taken by a library implementation. Because the distance between the red and green lines grows (on a log scale), it is easy to see that the naive algorithm is asymptotically slower than Cooley-Tukey. Aside from the anomaly at the first point, the reason the blue line looks as it does is because the library implements the algorithm in C, which is far faster than Python. As a result of this, not enough data points were tested for the algorithm to display its asymptotic behavior.
 	\subsubsection{Recovery Quality}
 		\begin{figure}[h]
-			\includegraphics[width=\linewidth]{images/compression-accuracy.png}
+			\includegraphics[width=\linewidth]{images/comprate-accuracy.png}
 			\caption{Error rates of various images with respect to compression rate.}
 			\label{fig:rmse-accuracy}
 		\end{figure}

@@ -1,37 +1,56 @@
 \documentclass[sigplan]{acmart}
-
+\usepackage[utf8]{inputenc}
 \usepackage{listings}
+\usepackage{appendix}
+
+
+\title{FFT Image Encoding}
 
 \author{Kody Newman}
 \author{Akash Gaonkar}
 \author{Valliappan Chidambaram}
 
-\title{FFT Image Encoding}
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+
+\bibliographystyle{ACM-Reference-Format}
 
 \begin{document}
 
   \maketitle
 
   \section{Introduction}
-	\input{intro}
+  \label{sec:introduction}
+	\input{introduction}
 
   \section{History of the FFT}
+  \label{sec:history}
 	\input{history}
 
   \section{Discrete Fourier Transform}
+  \label{sec:dft}
 	\input{dft}
 
   \section{Image Processing}
+  \label{sec:img-processing}
 	\input{img_processing}
 
   \section{Conclusion}
+  \label{sec:conclusion}
 	\input{conclusion}
 
-  \section{References}
-	%\bibliography{references}
+  \nocite{cooley_tukey_1965, cooley_lewis_welch_1967}
+	\bibliography{references}
 
 	\onecolumn\newpage
-	\section{Appendix A: Code}
+	\appendix
+  \section{Code}
+  \label{sec:code}
 	\input{code}
+
+  \section{Image Credit}
+  \label{sec:image-credit}
+  \input{image_credit}
 
 \end{document}

@@ -34,6 +34,13 @@ def ifft(fft_algo, data):
 
 
 def zigzag(bound, max_term):
+    """ Loops through a bound x bound array in a zigzag order up to max_term.
+        For bound=4, max_term=14, it yields the positions of the numbers:
+                0   2   3   9
+                1   4   8   10
+                5   7   11
+                6   12  13
+    """
     bound -= 1
     row, col, dir = 0, 0, -1
     for _ in range(max_term):

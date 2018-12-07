@@ -30,18 +30,18 @@
 \subsection{Different FFT Algorithms}
 	\subsubsection{Cooley-Tukey Algorithm}
 		The Cooley-Tukey algorithm is by far the most common fast fourier transform algorithm. It works on any input of composite size $N=N_1N_2$. It does so by doing $N_1$ fourier transforms of size $N_2$ followed by multiplications by twiddle factors and then $N_2$ fourier transforms of size $N_1$. The implementation and derivation are easiest when $N_1=2$, so the following assumes that (as did our implementation). Note that forcing $N_1=2$ means that the algorithm will only work when given $2^k|k\in\mathbb{N}$ values. Let $E_k$ be the DFT of the even indexed values, and $O_k$ be the DFT of the odd indexed values:
-		\begin{align*}
-			E_k &= \sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N/2}kn} \\
-			O_k &= \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N/2}kn}\\
-		\end{align*}
-		The DFT of the first half is:\\
+		\[
+			E_k = \sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N/2}kn} \quad;\quad
+			O_k = \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N/2}kn}
+		\]
+		The DFT of the first half is:
 		\begin{align*}
 			X_k &= \sum_{n=0}^{N-1}x_ne^{-\frac{2\pi i}{N}kn} \\
 			&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N}k*2n} + \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N}k(2n+1)} \\
 			&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N/2}kn} + e^{-\frac{2\pi i}{N}k}\sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N/2}kn} \\
 			&=E_k+e^{-\frac{2\pi i}{N}k}O_k
 		\end{align*}
-		This is only the first half because $k$ can only go up to $N/2-1$ because of the $E_k$ and $O_k$. The second half is:\\
+		This is only the first half because $k$ can only go up to $N/2-1$ because of the $E_k$ and $O_k$. The second half is:
 		\begin{align*}
 			&X_{k+N/2} = \sum_{n=0}^{N-1}x_ne^{-\frac{2\pi i}{N}(k+N/2)*n} \\
 			&=\sum_{n=0}^{N/2-1}x_{2n}e^{-\frac{2\pi i}{N}(k+N/2)*2n} + \sum_{n=0}^{N/2-1}x_{2n+1}e^{-\frac{2\pi i}{N}(k+N/2)(2n+1)} \\

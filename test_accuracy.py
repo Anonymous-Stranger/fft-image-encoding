@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
+from collections import namedtuple
 from PIL import Image
+from time import process_time
 import csv
 import numpy as np
 import os
@@ -21,14 +23,21 @@ img_h = 400
 block_size = 8
 
 
+AccuracyResults = namedtuple(
+    'AccuracyResults', ['nbytes', 'error', 'enctime', 'dectime'])
+
 def test_accuracy(alg, comp_rate, img_array):
     max_term = np.int8(block_size*block_size*comp_rate)
     encoder = ImageEncoder(encode_and_compress(alg, max_term),
                            uncompress_and_decode(alg, block_size),
                            block_size=block_size)
+    start_time = process_time()
     enc = encoder.from_array(img_array)
+    enc_time = process_time()
     dec = encoder.to_array(enc)
-    return enc.data.nbytes, rms_error(img_array, dec)
+    dec_time = process_time()
+    return AccuracyResults(enc.data.nbytes, rms_error(img_array, dec),
+                           enc_time - start_time, dec_time - enc_time)
 
 
 def rms_error(orig, decoded):
@@ -36,34 +45,35 @@ def rms_error(orig, decoded):
 
 
 if __name__ == "__main__":
-    idencoder = ImageEncoder(lambda x: x.astype(np.complex64),
-                             lambda x: x, block_size=block_size)
 
     with open('test_results/accuracy.csv', 'w') as outfile:
         out = csv.writer(outfile)
         out.writerow([
             'image', 'image_height', 'algorithm', 'block_size',
-            'compression_rate', 'encoded size (bytes)', 'rms error'
+            'compression_rate', 'encoded size (bytes)', 'rms error',
+            'encoding time (s)', 'decoding time (s)'
         ])
 
         for iname in os.listdir(img_dir):
             img = Image.open(os.path.join(img_dir, iname))
             pixels = np.array(img.resize((img_h*img.width//img.height, img_h)))
-            nbytes = idencoder.from_array(pixels).data.nbytes
+
+            res = test_accuracy(lambda x: x.astype(np.complex64), 1, pixels)
 
             out.writerow([
-                iname, img_h, 'identity transform', block_size, 1, nbytes, 0
+                iname, img_h, 'identity transform', block_size, 1,
+                res.nbytes, res.error, res.enctime, res.dectime
             ])
-            print("{} ({} KB)".format(iname, nbytes // 1000))
+            print("{} ({} KB)".format(iname, res.nbytes // 1000))
 
             for aname, alg in algorithms:
                 for comp_rate in compression_rates:
-                    nbytes, err = test_accuracy(alg, comp_rate, pixels)
+                    res = test_accuracy(alg, comp_rate, pixels)
                     out.writerow([
-                        iname, img_h, aname, block_size, comp_rate, nbytes, err
+                        iname, img_h, aname, block_size, comp_rate,
+                        res.nbytes, res.error, res.enctime, res.dectime
                     ])
-                    print(
-                        "    {} (comp. rate: {}): {} KB, rms error: {}".format(
-                            aname, comp_rate, nbytes // 1000, err
-                        )
-                    )
+                    print("[{:4.2g} s] {} (comp. rate: {}): "
+                          "{} KB, rms error: {}".format(
+                            res.enctime + res.dectime, aname, comp_rate,
+                            res.nbytes // 1000, res.error))

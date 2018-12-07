@@ -9,6 +9,10 @@
 		\includegraphics[width=\linewidth]{images/perfGraph.png}
 		The graph above shows the performance of 3 different implementations of the discrete fourier transform on several different size inputs. The red line shows the time taken by the dft algorithm, the green line shows the time taken by our implementation of Cooley-Tukey, and the blue line shows the time taken by a library implementation. Because the distance between the red and green lines grows (on a log scale), it is easy to see that the naive algorithm is asymptotically slower than Cooley-Tukey. Aside from the anomaly at the first point, the reason the blue line looks as it does is because the library implements the algorithm in C, which is far faster than Python. As a result of this, not enough data points were tested for the algorithm to display its asymptotic behavior.
 	\subsubsection{Compression}
-		\includegraphics[width=\linewidth]{images/imgCompare1.png}
-		\includegraphics[width=\linewidth]{images/imgCompare2.png}
+		\begin{figure}[h]
+			\includegraphics[width=\linewidth]{images/imgCompare1.png}
+			\includegraphics[width=\linewidth]{images/imgCompare2.png}
+			\caption{Two images compressed to 16\% (top left), 33\% (top), 50\% (top right), 66\% (bottom left), 83\% (bottom), and 100\% (bottom right) of their original size.}
+		\end{figure}
+		The above images show the results of our compression algorithm. We compressed them to the sizes listed, and calculated the root mean squared error from the original image. The RMSE values weren't too large, but as can be easily seen on the first six, the images have a lot of artifacts, and the compression can be noticed easily. On the second six images, the compression does far better, unnoticeable at even 50\% compression. Despite this, the compression is still really bad, because the images actually increase in size when compressed, unless compressed to 25\% or less. This is because they are stored as floating point types instead of integers, and because a real and imaginary part must be stored, even if the highest frequencies are all ignored.
 \subsection{Discussion}

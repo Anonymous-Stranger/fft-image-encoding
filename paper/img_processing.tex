@@ -8,4 +8,7 @@
 	\subsubsection{Performance}
 		\includegraphics[width=\linewidth]{images/perfGraph.png}
 		The graph above shows the performance of 3 different implementations of the discrete fourier transform on several different size inputs. The red line shows the time taken by the dft algorithm, the green line shows the time taken by our implementation of Cooley-Tukey, and the blue line shows the time taken by a library implementation. Because the distance between the red and green lines grows (on a log scale), it is easy to see that the naive algorithm is asymptotically slower than Cooley-Tukey. Aside from the anomaly at the first point, the reason the blue line looks as it does is because the library implements the algorithm in C, which is far faster than Python. As a result of this, not enough data points were tested for the algorithm to display its asymptotic behavior.
+	\subsubsection{Compression}
+		\includegraphics[width=\linewidth]{images/imgCompare1.png}
+		\includegraphics[width=\linewidth]{images/imgCompare2.png}
 \subsection{Discussion}
